@@ -1,8 +1,3 @@
-![Python](https://img.shields.io/badge/python-3.12-blue.svg)
-![Groq](https://img.shields.io/badge/LLM-Llama--3.3--70B-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Security](https://img.shields.io/badge/Security-Hardened-red.svg)
-
 #  NL-to-CLI Secure Agent
 
 ###  Project Overview
@@ -22,17 +17,17 @@ The core of this project is a rigorous **Prompt Engineering** process, evolving 
 
 ###  The Prompt Engineering Journey
 
-####  Iteration 1: The Basic Assistant
+#### 🟢 Iteration 1: The Basic Assistant
 * **Strategy:** Direct translation from NL to CMD.
 * **Failures:** The model attempted to "chat" or execute unsafe web-based commands (e.g., searching medical symptoms online).
 * **Lesson:** The model lacked boundaries and needed explicit constraints.
 
-####  Iteration 2: Constraints & Guardrails
+#### 🟡 Iteration 2: Constraints & Guardrails
 * **Changes:** Implemented mandatory error strings and blocked URL access. Added the `WARNING` prefix for dangerous commands.
 * **Failures:** "Over-filtering" occurred—the model blocked safe commands like `ipconfig` because it misclassified them as general knowledge.
 * **Lesson:** Constraints alone are too blunt; a logical classification system was required.
 
-####  Iteration 3: Intelligent Classification (The Expert Admin)
+#### 🔴 Iteration 3: Intelligent Classification (The Expert Admin)
 * **Changes:** Introduced a **Three-Tier Classification Logic**:
     * **Category A (Safe):** Networking & System Info (Allowed).
     * **Category B (Risky):** Deletions & State Changes (Allowed with `WARNING`).
@@ -51,9 +46,28 @@ The project's progress was meticulously documented using structured test cases f
 
 ---
 
-###  Technical Challenges & Solutions
-* **SSL Certificate Conflicts (NetFree/Enterprise Filtering):**
-A significant technical hurdle was encountered where the `httpx` library (used by Gradio/OpenAI) crashed due to local SSL inspection. This was resolved by implementing a programmatic environment cleanup that clears the `SSL_CERT_FILE` variable and configures an unverified transport layer before initializing the API client.
+### 🛡️ Enterprise & Filtered Environments (NetFree/SSL Fix)
+In environments with strict SSL inspection (like **NetFree** or corporate firewalls), Python's `httpx` and `openai` libraries often crash due to certificate validation errors. 
+
+To solve this, I implemented a custom transport layer that bypasses local certificate conflicts without compromising the application's logic.
+
+**The Solution:**
+Add this snippet before initializing your API client:
+
+```python
+import os
+import httpx
+
+# Clear local SSL cert conflicts
+if "SSL_CERT_FILE" in os.environ:
+    del os.environ["SSL_CERT_FILE"]
+
+# Initialize client with unverified transport for restricted environments
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY"),
+    http_client=httpx.Client(verify=False)
+)
+```
 
 ---
 
@@ -75,12 +89,18 @@ A significant technical hurdle was encountered where the `httpx` library (used b
 ---
 
 ###  Installation & Usage
-1. Clone the repository: `git clone [Your-Repo-URL]`
+
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent](https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent)
+   cd NL-to-CLI-Secure-Agent
+   ```
 2. Install dependencies: `pip install -r requirements.txt`
 3. Set up your `.env` file with your `GROQ_API_KEY`.
 4. Run the agent: `python main.py`
 
 ---
 
-###  Why this matters
+### 💡 Why this matters
 This project demonstrates the power of **Iterative Prompt Engineering**. It shows how to move beyond a simple chatbot to create a specialized, reliable, and safe tool that respects system boundaries.
