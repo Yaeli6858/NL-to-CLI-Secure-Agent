@@ -51,7 +51,7 @@ The project's progress was meticulously documented using structured test cases f
 
 ---
 
-### 🛡️ Enterprise & Filtered Environments (NetFree/SSL Fix)
+###  Enterprise & Filtered Environments (NetFree/SSL Fix)
 In environments with strict SSL inspection (like **NetFree** or corporate firewalls), Python's `httpx` and `openai` libraries often crash due to certificate validation errors. 
 
 To solve this, I implemented a custom transport layer that bypasses local certificate conflicts without compromising the application's logic.
@@ -98,7 +98,7 @@ client = Groq(
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent](https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent)
+   git clone (https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent)
    cd NL-to-CLI-Secure-Agent
    ```
 2. Install dependencies: `pip install -r requirements.txt`
@@ -107,5 +107,5 @@ client = Groq(
 
 ---
 
-### 💡 Why this matters
+###  Why this matters
 This project demonstrates the power of **Iterative Prompt Engineering**. It shows how to move beyond a simple chatbot to create a specialized, reliable, and safe tool that respects system boundaries.
