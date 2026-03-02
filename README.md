@@ -1,3 +1,8 @@
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![Groq](https://img.shields.io/badge/LLM-Llama--3.3--70B-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Security](https://img.shields.io/badge/Security-Hardened-red.svg)
+
 #  NL-to-CLI Secure Agent
 
 ###  Project Overview
