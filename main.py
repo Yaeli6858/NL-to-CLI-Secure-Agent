@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 os.environ.pop('SSL_CERT_FILE', None)
 unsafe_transport = httpx.HTTPTransport(verify=False)
 unsafe_client = httpx.Client(transport=unsafe_transport)
+if "SSL_CERT_FILE" in os.environ:
+    del os.environ["SSL_CERT_FILE"]
 
 #api_key
 load_dotenv()

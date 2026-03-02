@@ -1,9 +1,17 @@
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![Groq](https://img.shields.io/badge/LLM-Llama--3.3--70B-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Security](https://img.shields.io/badge/Security-Hardened-red.svg)
 
 #  NL-to-CLI Secure Agent
+
+
+---
+
+<p align="center">
+  <img src="screenshot.gif" alt="AI Agent Demo" width="600">
+</p>
+
+---
+
 
 ###  Project Overview
 This project features an intelligent AI agent that acts as a bridge between **Natural Language (NL)** and **Windows Command Line (CLI)**. Built using **Groq (Llama 3.3 70B)** and Python, the agent translates human instructions into precise, executable system commands while strictly adhering to security protocols.
