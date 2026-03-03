@@ -101,17 +101,36 @@ client = Groq(
 
 ---
 
-###  Installation & Usage
-
+### Installation & Usage
 
 1. **Clone the repository:**
    ```bash
    git clone (https://github.com/Yaeli6858/NL-to-CLI-Secure-Agent)
    cd NL-to-CLI-Secure-Agent
    ```
-2. Install dependencies: `pip install -r requirements.txt`
-3. Set up your `.env` file with your `GROQ_API_KEY`.
-4. Run the agent: `python main.py`
+
+2. **Create and activate virtual environment:**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate       # Windows
+   source venv/bin/activate    # Mac/Linux
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environment:**
+   ```bash
+    Set up your `.env` file with your `GROQ_API_KEY`.
+   ```
+
+5. **Run the agent:**
+   ```bash
+   python main.py
+   ```
+   Open: http://127.0.0.1:7860
 
 ---
 

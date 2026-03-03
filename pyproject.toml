@@ -1,7 +1,12 @@
 [project]
-name = "prompt-eng-project"
-version = "0.1.0"
-description = "Add your description here"
+name = "nl-to-cli-secure-agent"
+version = "1.0.0"
+description = "Natural Language to Windows CLI secure translation agent"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "gradio>=6.7.0",
+    "openai>=2.24.0",
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.1",
+]

@@ -4,7 +4,13 @@ import gradio as gr
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# netfree
+# =========================================================
+# SSL BYPASS — FOR NETFREE / FILTERED ENVIRONMENTS ONLY
+# In environments with SSL inspection (e.g., NetFree, 
+# corporate firewalls), Python's httpx may crash with
+# certificate errors. This disables local cert validation.
+# WARNING: Remove this block in production environments.
+# =========================================================
 os.environ.pop('SSL_CERT_FILE', None)
 unsafe_transport = httpx.HTTPTransport(verify=False)
 unsafe_client = httpx.Client(transport=unsafe_transport)
