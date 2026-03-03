@@ -52,7 +52,7 @@ The core of this project is a rigorous **Prompt Engineering** process, evolving 
 ###  Performance & Evaluation
 The project's progress was meticulously documented using structured test cases for each iteration. These tables include the input, actual output, and scores for functional accuracy and security.
 
- **Detailed Evaluation Tables:** [Download/agent-cli-sheets.pdf](./agent-cli-sheets.pdf)  
+ **Detailed Evaluation Tables:** [agent-cli-sheets.pdf](./agent-cli-sheets.pdf)  
 *(Note: Link points to the PDF file included in this repository).*
 
 
